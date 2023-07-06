@@ -16,7 +16,7 @@ const pingCommand = new Command({
 })
 bot.on('messageUpdate', async (_message, message) => {
   if (!pingIds[message.id]) return;
-  if (message.partial) message = await message.fetch();
-  await message.edit(`Pong! (⬇${pingIds[message.id] - message.createdTimestamp}ms ⬆${message.editedTimestamp ? message.editedTimestamp - pingIds[message.id] : '?'}ms)`);
+  if (!message.editedTimestamp) return;
+  await message.edit(`Pong! (⬇${pingIds[message.id] - message.createdTimestamp}ms ⬆${message.editedTimestamp - pingIds[message.id]}ms)`);
   delete pingIds[message.id];
 })
