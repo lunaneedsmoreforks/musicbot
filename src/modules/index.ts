@@ -13,6 +13,8 @@ import './shell';
 modules++;
 import './stop';
 modules++;
+import './fakenitro'
+modules++;
 
 
 console.log(`Loaded ${modules} modules and ${_commands.length} commands!`)
