@@ -1,7 +1,7 @@
 module.exports = {
   apps: [{
       name: "selfbot",
-      script: "./out/index.js",
+      script: "./out/src/index.js",
       log_file: "selfbot.log",
   }],
 
