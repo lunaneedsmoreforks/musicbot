@@ -1,0 +1,8 @@
+{
+  // Your Discord Token
+  "token": "YOUR_TOKEN_HERE",
+  // Your Command Prefix
+  "prefix": "$"
+  // Array of owner ids
+  "owners": []
+}
