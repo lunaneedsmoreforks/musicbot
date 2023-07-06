@@ -15,6 +15,7 @@ import './stop';
 modules++;
 import './fakenitro'
 modules++;
+import './utils'
 
 
 console.log(`Loaded ${modules} modules and ${_commands.length} commands!`)
