@@ -6,6 +6,8 @@ import ts from 'typescript'
 
 import { Command } from '../../command'
 
+var _global = {} as any;
+
 const evalCommand = new Command({
   "name": "eval",
   "description": "Evaluate javascript",
