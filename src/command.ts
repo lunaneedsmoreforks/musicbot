@@ -5,13 +5,19 @@ import { prefix, owners } from "./config";
 
 export const _commands: Command[] = [];
 
+export interface CommandMessage extends Message {
+  prefix: string;
+  usedName: string;
+  name: string;
+}
+
 
 interface CommandOptions {
   name: string;
   description: string;
   usage: string;
   aliases?: string[];
-  callback: (message: Message, args: string[]) => void;
+  callback: (message: CommandMessage, args: string[]) => void;
 }
 export class Command {
   description: string;
@@ -19,7 +25,7 @@ export class Command {
   name: string;
   aliases: string[];
 
-  callback: (message: Message, args: string[]) => void;
+  callback: (message: CommandMessage, args: string[]) => void;
 
   constructor(options: CommandOptions) {
     this.description = options.description;
@@ -45,8 +51,13 @@ async function possiblyTriggerCommand(message: Message|PartialMessage, newMessag
   if (!command) return;
   const cmd = _commands.find(cmd => cmd.aliases.includes(command));
   if (!cmd) return;
-  console.log(message.content)
-  cmd.callback(message, args);
+
+  const cmdMessage = message as CommandMessage;
+  cmdMessage.prefix = prefix;
+  cmdMessage.usedName = command;
+  cmdMessage.name = cmd.name;
+
+  cmd.callback(cmdMessage, args);
 }
 
 bot.on('messageCreate', possiblyTriggerCommand);

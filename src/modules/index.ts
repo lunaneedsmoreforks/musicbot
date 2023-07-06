@@ -11,6 +11,8 @@ import './eval';
 modules++;
 import './shell';
 modules++;
+import './stop';
+modules++;
 
 
 console.log(`Loaded ${modules} modules and ${_commands.length} commands!`)
