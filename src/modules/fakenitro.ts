@@ -78,7 +78,5 @@ const fakeNitroCommand = new Command({
     } else {
       message.edit("Invalid argument");
     }
-
-    setTimeout(message.delete, 5000)
   }
 })
