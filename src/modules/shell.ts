@@ -28,8 +28,6 @@ const shellCommand = new Command({
     });
 
     const updateOutput = async () => {
-      console.log("updateOutput");
-      console.log(output);
       if (output.length === 0) return;
       // When the output is over 2000 characters, make a new message
       if (output.join('\n').length > 2000) {
