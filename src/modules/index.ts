@@ -9,13 +9,16 @@ let modules = 0;
 
 import './eval';
 modules++;
-import './shell';
-modules++;
+// import './shell';
+// modules++;
 import './stop';
 modules++;
-import './fakenitro'
-modules++;
+// import './fakenitro'
+// modules++;
 import './utils'
+modules++;
 
 
-console.log(`Loaded ${modules} modules and ${_commands.length} commands!`)
+console.log(`Loaded ${modules} modules and ${_commands.length} commands! (old method)`)
+
+

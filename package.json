@@ -3,9 +3,14 @@
     "build": "tsc"
   },
   "dependencies": {
+    "@types/argparse": "^2.0.10",
+    "@types/fluent-ffmpeg": "^2.1.21",
+    "argparse": "^2.0.1",
     "discord.js-selfbot-v13": "^2.14.6",
     "dotenv": "^16.3.1",
-    "typescript": "^5.1.6"
+    "fluent-ffmpeg": "^2.1.2",
+    "typescript": "^5.1.6",
+    "ytdl-core": "^4.11.4"
   },
   "devDependencies": {
     "@types/node": "^20.4.0",

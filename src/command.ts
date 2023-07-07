@@ -60,5 +60,5 @@ async function possiblyTriggerCommand(message: Message|PartialMessage, newMessag
   cmd.callback(cmdMessage, args);
 }
 
-bot.on('messageCreate', possiblyTriggerCommand);
-bot.on('messageUpdate', possiblyTriggerCommand);
+bot.addEventListener('messageCreate', possiblyTriggerCommand);
+bot.addEventListener('messageUpdate', possiblyTriggerCommand);
