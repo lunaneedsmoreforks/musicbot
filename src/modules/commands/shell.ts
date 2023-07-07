@@ -65,3 +65,5 @@ export default new Command({
     });
   }
 })
+
+export { processes }
