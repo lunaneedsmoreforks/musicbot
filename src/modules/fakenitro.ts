@@ -13,16 +13,26 @@ async function parseFakeNitro(message: Message) {
   if (message.author.id !== bot.user?.id) return;
   
   // Match discord emoji
-  const emojiRegex = /:\w+:/g;
+  const emojiRegex = /:\w+(?:\\~\d)?:/g;
   const emojiMatches = message.content.match(emojiRegex);
   if (emojiMatches) {
     let newContent = message.content;
     emojiMatches.forEach(async (match) => {
       // Get emoji name
-      const emojiName = match.slice(1, -1);
+      let emojiName = match.slice(1, -1);
       // Get emoji
+      // Parse :emojiname~1: syntax for if there are multiple emoji with the same name
+      let tildaIndex = 0;
+      if (emojiName.substring(emojiName.length - 2, emojiName.length - 1) === '\~') {
+        tildaIndex = Number.parseInt(emojiName.substring(emojiName.length - 1));
+        emojiName = emojiName.substring(0, emojiName.length - 3);
+      }
       bot.emojis.cache.forEach((emoji) => {
         if (emoji.name === emojiName) {
+          if (tildaIndex > 0) {
+            tildaIndex--;
+            return;
+          }
           newContent = newContent.replaceAll(match, `https://cdn.discordapp.com/emojis/${emoji.id}.${emoji.animated ? "gif" : "png"}?quality=lossless&name=${emoji.name}&size=48`);
         }
       })
