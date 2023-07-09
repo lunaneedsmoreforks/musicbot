@@ -7,11 +7,11 @@ module.exports = {
 
   deploy: {
       server: {
-          user: "luna",
-          host: "dad.lvna.me",
+          user: "aenri",
+          host: process.env.SERVER_IP,
           ref: "origin/main",
-          repo: "git@github.com:imlvna/selfbot.git",
-          path: "/home/luna/servers/selfbot",
+          repo: "git@github.com:chimera-organization/selfbot.git",
+          path: "/home/aenri/stack/selfbot",
           "post-deploy": "yarn install && yarn build && pm2 startOrRestart ecosystem.config.js"
       }
   }
