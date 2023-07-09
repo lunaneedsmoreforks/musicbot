@@ -10,7 +10,7 @@ module.exports = {
           user: "aenri",
           host: process.env.SERVER_IP,
           ref: "origin/main",
-          repo: "git@github.com:chimera-organization/selfbot.git",
+          repo: "https://github.com/chimera-organization/selfbot.git",
           path: "/home/aenri/stack/selfbot",
           "post-deploy": "yarn install && yarn build && pm2 startOrRestart ecosystem.config.js"
       }
