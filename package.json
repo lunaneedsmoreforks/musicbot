@@ -9,6 +9,7 @@
     "discord.js-selfbot-v13": "^2.14.6",
     "dotenv": "^16.3.1",
     "fluent-ffmpeg": "^2.1.2",
+    "python-shell": "^5.0.0",
     "typescript": "^5.1.6",
     "ytdl-core": "^4.11.4"
   },

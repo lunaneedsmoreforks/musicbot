@@ -1,6 +1,6 @@
 import { ChildProcess, exec } from "child_process";
-import { owners } from "../../config";
-import { Command } from "../../lib/command";
+import { owners } from "../../../config";
+import { Command } from "../../../lib/command";
 import { Message } from "discord.js-selfbot-v13";
 
 let processes: Map<string, ChildProcess> = new Map();
@@ -11,11 +11,31 @@ export default new Command({
   description: 'Run shell commands',
   usage: '+shell <command>',
   callback: async (context) => {
-    
+
+    context.args?.shift();
+
+    if (!context.args) return;
+  
+
+
     let output: string[] = [];
     let message: Message | null = null;
     let editTimeout: number = 500;
     let editLastTime: number = 0;
+
+    if (context.args[0] === "stop") {
+      for (const [key, value] of processes) {
+        value.kill();
+        processes.delete(key);
+        output.push(`<Killed \`${key}\`>`);
+        if (editLastTime + editTimeout < Date.now()) {
+          editLastTime = Date.now();
+          await updateMessage();
+        }
+      }
+      await updateMessage();
+      return;
+    }
 
     async function updateMessage() {
       if (!message && output.length == 0) return;
@@ -29,7 +49,7 @@ export default new Command({
     if (!owners.includes(context.caller.id)) return;
     if (!context.args) return;
 
-    const command = context.restMessage || context.args.join(' ');
+    const command = context.args.join(' ');
     output.push(`<Running \`${command}\`...>`);
     await updateMessage();
 
