@@ -1,7 +1,7 @@
 import { Awaitable, Client, ClientEvents } from "discord.js";
 import { Command, CommandContext, ICommandable } from "./command";
 import Module from "./module";
-import { owners, ownersOnly } from "../config";
+import { owners } from "../config";
 
 
 class Registry {
@@ -49,7 +49,7 @@ class Registry {
     if (this.commandListenerId) return; // just in case
     this.commandListenerId = this.addEventListener("messageCreate", async (message) => {
       
-      if (ownersOnly && !owners.includes(message.author.id)) return;
+      if (!owners.includes(message.author.id)) return;
       
       const context = new CommandContext(message, this.bot!!);
       let matched = false;
