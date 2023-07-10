@@ -1,4 +1,4 @@
-import { ClientEvents } from "discord.js-selfbot-v13";
+import { ClientEvents } from "discord.js";
 
 
 class DiscordEventListener<K extends keyof ClientEvents> {

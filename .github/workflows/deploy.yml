@@ -25,5 +25,3 @@ jobs:
       - name: Deploy
         run: |
           pm2 deploy server
-        env:
-          SERVER_IP: ${{secrets.SERVER_IP}}

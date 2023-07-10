@@ -1,4 +1,4 @@
-import { Awaitable, Message } from "discord.js-selfbot-v13";
+import { Awaitable, Message } from "discord.js";
 import { CommandContext } from "../../../../lib/command";
 import { runInNodeEnv } from "./node";
 import ts from "typescript";

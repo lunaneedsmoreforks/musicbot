@@ -3,7 +3,7 @@ import { Command } from "../../lib/command";
 import { ArgumentParser } from "argparse";
 import ytdl from "ytdl-core";
 import ffmpeg from "fluent-ffmpeg";
-import { Message } from "discord.js-selfbot-v13";
+import { Message } from "discord.js";
 
 
 export default new Command({

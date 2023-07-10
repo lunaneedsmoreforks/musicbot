@@ -1,4 +1,4 @@
-import { Awaitable, Client, ClientEvents } from "discord.js-selfbot-v13";
+import { Awaitable, Client, ClientEvents } from "discord.js";
 import { Command, CommandContext, ICommandable } from "./command";
 import Module from "./module";
 import { owners, ownersOnly } from "../config";

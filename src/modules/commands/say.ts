@@ -1,4 +1,4 @@
-import { DMChannel, PartialGroupDMChannel } from "discord.js-selfbot-v13";
+import { DMChannel, PartialGroupDMChannel } from "discord.js";
 import { owners } from "../../config";
 import { Command } from "../../lib/command";
 

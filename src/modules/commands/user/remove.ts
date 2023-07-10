@@ -9,7 +9,7 @@ export default new Command({
   usage: '+user remove <user>',
   callback: async (context) => {
     if (!context.restMessage) return;
-    if (context.caller.id != context.bot.user?.id) return;
+    if (owners.includes(context.caller.id)) return;
     context.message.mentions.users.forEach((user) => {
       if (owners.includes(user.id)) owners.splice(owners.indexOf(user.id), 1);
     })

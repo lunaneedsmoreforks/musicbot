@@ -1,7 +1,7 @@
 import { ChildProcess, exec } from "child_process";
 import { owners } from "../../../config";
 import { Command } from "../../../lib/command";
-import { Message } from "discord.js-selfbot-v13";
+import { Message } from "discord.js";
 
 let processes: Map<string, ChildProcess> = new Map();
 

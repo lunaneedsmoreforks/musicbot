@@ -1,4 +1,4 @@
-import { Message, PartialMessage } from "discord.js-selfbot-v13";
+import { Message, PartialMessage } from "discord.js";
 
 import bot from './index'
 import { prefix, owners } from "./config";

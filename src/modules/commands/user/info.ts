@@ -1,4 +1,4 @@
-import { WebEmbed } from "discord.js-selfbot-v13";
+import { EmbedBuilder } from "discord.js";
 import { Command } from "../../../lib/command";
 
 export default new Command({
@@ -7,17 +7,17 @@ export default new Command({
   description: 'Get info about a user',
   usage: '+user info <user>',
   callback: async (context) => {
-    let embed = new WebEmbed()
+    let embed = new EmbedBuilder()
     let user = context.message.mentions.users.first() || context.caller;
     if (user.discriminator === "0") {
       embed.setAuthor({
         name: `${user.username}`,
-        iconURL: user.displayAvatarURL({ dynamic: true })
+        iconURL: user.displayAvatarURL()
       });
     } else {
       embed.setAuthor({
         name: `${user.username}#${user.discriminator}`,
-        iconURL: user.displayAvatarURL({ dynamic: true })
+        iconURL: user.displayAvatarURL()
       });
     }
     embed.setDescription(`

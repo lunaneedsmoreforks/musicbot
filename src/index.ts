@@ -1,10 +1,15 @@
-import { Client } from 'discord.js-selfbot-v13'
+import { Client } from 'discord.js'
 
 import { token, owners } from './config'
 import Registry from './lib/registry';
 
 const bot = new Registry(new Client({
-  checkUpdate: false
+  intents: [
+    "Guilds",
+    "GuildMembers",
+    "GuildMessages",
+    "MessageContent"
+  ]
 }))
 
 export default bot;

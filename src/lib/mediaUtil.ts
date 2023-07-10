@@ -1,4 +1,4 @@
-import { Awaitable } from "discord.js-selfbot-v13";
+import { Awaitable } from "discord.js";
 import { Readable } from "stream";
 import ytdl from "ytdl-core";
 

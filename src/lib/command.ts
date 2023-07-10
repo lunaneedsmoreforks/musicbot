@@ -1,4 +1,4 @@
-import { Awaitable, Channel, Client, Guild, Message, TextBasedChannel, User } from "discord.js-selfbot-v13";
+import { Awaitable, Channel, Client, Guild, Message, TextBasedChannel, User } from "discord.js";
 import { prefix } from "../config";
 
 class CommandContext {

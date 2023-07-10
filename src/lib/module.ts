@@ -1,6 +1,6 @@
 
 
-import { Awaitable, ClientEvents } from "discord.js-selfbot-v13";
+import { Awaitable, ClientEvents } from "discord.js";
 import { Command, ICommandable } from "./command";
 import { DiscordEventListener } from "./eventListener";
 
